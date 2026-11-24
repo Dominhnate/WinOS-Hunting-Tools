@@ -21,8 +21,7 @@
     Example: -Extension *.dll,*.exe,*.sys,*.ocx
 
 .PARAMETER OutputPath
-    Output file path. If omitted, a timestamped file is written to the
-    current directory, e.g. file_audit_20261224_153012.csv
+    Output file path. Default, file_audit_<timestamp>.csv in same folder as the script Invoke-FileAudit.ps1
 
 .PARAMETER Format
     Csv | Json | PassThru. Default: Csv
