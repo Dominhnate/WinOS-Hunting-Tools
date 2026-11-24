@@ -38,6 +38,10 @@ If script execution is blocked:
 powershell -ExecutionPolicy Bypass -File .\Invoke-FileAudit.ps1
 ```
 
+## Ouput
+
+**Defaut**: ```file_audit_<timestamp>.csv``` in current directory.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
@@ -67,9 +71,3 @@ Errors are written to a sibling `.errors.log` file. A summary is printed at the 
 - **Software inventory** - baseline what's deployed on a fleet machine
 - **Threat hunting** - find unsigned or suspiciously-signed binaries in user-writable locations
 - **Supply-chain audit** - compare hashes against a known-good baseline
-- **CI gate** - fail builds that emit unsigned DLLs:
-
-  ```powershell
-  .\Invoke-FileAudit.ps1 -Path .\bin -r -OnlyUnsigned
-  if ($LASTEXITCODE -eq 2) { throw "Unsigned binaries in build output" }
-  ```
